@@ -1,0 +1,32 @@
+{% extends 'ativos/base.html' %}
+
+{% block conteudo %}
+<h2>Cadastrar Ativo</h2>
+
+{% if erro %}
+<p class="erro">{{ erro }}</p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Hostname:</label>
+    <input type="text" name="hostname" required>
+
+    <label>Responsável:</label>
+    <input type="text" name="responsavel" required>
+
+    <label>Setor:</label>
+    <input type="text" name="setor" required>
+
+    <label>Tipo de Ativo:</label>
+    <select name="tipo">
+        {% for valor, nome in tipos %}
+        <option value="{{ valor }}">{{ nome }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a href="/" class="btn btn-danger">Cancelar</a>
+</form>
+{% endblock %}

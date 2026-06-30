@@ -1,0 +1,32 @@
+{% extends 'ativos/base.html' %}
+
+{% block conteudo %}
+<h2>Ativos Cadastrados</h2>
+
+{% if ativos %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hostname</th>
+            <th>Tipo</th>
+            <th>Responsável</th>
+            <th>Setor</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ativo in ativos %}
+        <tr>
+            <td>{{ ativo.id }}</td>
+            <td>{{ ativo.hostname }}</td>
+            <td>{{ ativo.tipo }}</td>
+            <td>{{ ativo.responsavel }}</td>
+            <td>{{ ativo.setor }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum ativo cadastrado ainda.</p>
+{% endif %}
+{% endblock %}

@@ -12,7 +12,7 @@ class Ativo(models.Model):
     hostname = models.CharField(max_length=100)
     responsavel =  models.CharField(max_length=100)
     setor =  models.CharField(max_length=100)
-    tipo =   tipo = models.CharField(max_length=20, choices=TIPO_ESCOLHA)
+    tipo =   models.CharField(max_length=20, choices=TIPO_ESCOLHA)
     dados_json = models.JSONField(default=dict)
 
     def __str__(self):

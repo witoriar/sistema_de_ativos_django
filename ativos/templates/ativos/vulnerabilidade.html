@@ -1,0 +1,49 @@
+{% extends 'ativos/base.html' %}
+
+{% block conteudo %}
+
+{% if not ativo %}
+<h2>Cadastrar Vulnerabilidade</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Digite o ID do ativo:</label>
+    <input type="number" name="id" required>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if erro %}
+<p class="erro">{{ erro }}</p>
+{% endif %}
+
+{% else %}
+<h2>Cadastrar Vulnerabilidade</h2>
+<h3>Ativo: {{ ativo.hostname }} | Tipo: {{ ativo.tipo }}</h3>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="hidden" name="id" value="{{ ativo.id }}">
+
+    <label>Descrição:</label>
+    <textarea name="descricao" rows="4" required></textarea>
+
+    <label>Severidade:</label>
+    <select name="severidade">
+        {% for valor, nome in severidades %}
+        <option value="{{ valor }}">{{ nome }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Status:</label>
+    <select name="status">
+        {% for valor, nome in status_opcoes %}
+        <option value="{{ valor }}">{{ nome }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a href="/" class="btn btn-danger">Cancelar</a>
+</form>
+{% endif %}
+
+{% endblock %}

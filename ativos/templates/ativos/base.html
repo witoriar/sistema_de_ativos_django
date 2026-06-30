@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ativos de TI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 30px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 12px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #2c3e50;
+        }
+        nav a:hover { background-color: #1a252f; }
+        nav a.verde { background-color: #27ae60; }
+        nav a.verde:hover { background-color: #1e8449; }
+        nav a.azul { background-color: #2980b9; }
+        nav a.azul:hover { background-color: #1f6390; }
+        nav a.laranja { background-color: #f39c12; }
+        nav a.laranja:hover { background-color: #d68910; }
+        nav a.vermelho { background-color: #e74c3c; }
+        nav a.vermelho:hover { background-color: #c0392b; }
+        nav a.roxo { background-color: #8e44ad; }
+        nav a.roxo:hover { background-color: #6c3483; }
+        .container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .btn-primary { background-color: #2980b9; color: white; }
+        .btn-danger { background-color: #e74c3c; color: white; }
+        .btn-warning { background-color: #f39c12; color: white; }
+        .btn-success { background-color: #27ae60; color: white; }
+        .erro { color: red; margin-bottom: 10px; font-weight: bold; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Ativos de TI</h1>
+    </header>
+    <nav>
+        <a href="/" class="verde">Listar Ativos</a>
+        <a href="/cadastrar/" class="azul">Cadastrar Ativo</a>
+        <a href="/atualizar/" class="laranja">Atualizar Ativo</a>
+        <a href="/deletar/" class="vermelho">Deletar Ativo</a>
+        <a href="/vulnerabilidade/" class="azul">Cadastrar Vulnerabilidade</a>
+        <a href="/vulnerabilidades/" class="roxo">Listar Vulnerabilidades</a>
+    </nav>
+    <div class="container">
+        {% block conteudo %}{% endblock %}
+    </div>
+</body>
+</html>
