@@ -9,7 +9,7 @@ class TipoAtivo(Enum):
 class Severidade(Enum):
 
     BAIXA = 1
-    MADIA = 2
+    MEDIA = 2
     ALTA = 3
     CRITICA = 4
 
